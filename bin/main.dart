@@ -4,7 +4,6 @@
 // Write the winning scenario
 // 1. Start with checking if a player has all cells in row
 // 2. Extend the logic to Columns and diagonal
-import "package:test/test.dart";
 import 'dart:io';
 
 void main() {
@@ -24,7 +23,10 @@ void main() {
     }
     board[row][column] = currentPlayer;
     printBoard(board);
-    winner(board, currentPlayer);
+    if (winner(board, currentPlayer)) {
+      exit(0);
+    }
+    ;
     if (currentPlayer == 'X') {
       currentPlayer = 'O';
     } else {
