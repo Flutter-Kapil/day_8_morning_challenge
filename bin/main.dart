@@ -4,13 +4,14 @@
 // Write the winning scenario
 // 1. Start with checking if a player has all cells in row
 // 2. Extend the logic to Columns and diagonal
-
+import "package:test/test.dart";
 import 'dart:io';
 
 void main() {
   List<List<String>> board = createBoard();
   printBoard(board);
   String currentPlayer = 'X';
+  print(board);
 
   while (true) {
     print('$currentPlayer\'s move');
@@ -61,30 +62,32 @@ String rowToString(List<String> row) {
   return row.map((String val) => ' $val ').join('|');
 }
 
-void winner(List<List<String>> board, String x) {
+bool winner(List<List<String>> board, String x) {
   if (board[0][0] == x && board[0][1] == x && board[0][2] == x) {
     print("$x won");
-    exit(0);
+    return true;
   } else if (board[1][0] == x && board[1][1] == x && board[1][2] == x) {
     print("$x won");
-    exit(0);
+    return true;
   } else if (board[2][0] == x && board[2][1] == x && board[2][2] == x) {
     print("$x won");
-    exit(0);
+    return true;
   } else if (board[0][0] == x && board[1][0] == x && board[2][0] == x) {
     print("$x won");
-    exit(0);
+    return true;
   } else if (board[0][1] == x && board[1][1] == x && board[2][1] == x) {
     print("$x won");
-    exit(0);
+    return true;
   } else if (board[0][2] == x && board[1][2] == x && board[2][2] == x) {
     print("$x won");
-    exit(0);
+    return true;
   } else if (board[0][0] == x && board[1][1] == x && board[2][2] == x) {
     print("$x won");
-    exit(0);
+    return true;
   } else if (board[0][2] == x && board[1][1] == x && board[2][0] == x) {
     print("$x won");
-    exit(0);
+    return true;
+  } else {
+    return false;
   }
 }
