@@ -23,6 +23,7 @@ void main() {
     }
     board[row][column] = currentPlayer;
     printBoard(board);
+    winner(board, currentPlayer);
     if (currentPlayer == 'X') {
       currentPlayer = 'O';
     } else {
@@ -37,7 +38,6 @@ List<List<String>> createBoard() {
   var boardSize = 3;
   return List.generate(boardSize, (_) => List.filled(boardSize, ' '));
 }
-
 
 bool validate(int row, int column, List<List<String>> board) {
   return board[row][column] == ' ';
@@ -59,4 +59,32 @@ void printBoard(List<List<String>> board) {
 
 String rowToString(List<String> row) {
   return row.map((String val) => ' $val ').join('|');
+}
+
+void winner(List<List<String>> board, String x) {
+  if (board[0][0] == x && board[0][1] == x && board[0][2] == x) {
+    print("$x won");
+    exit(0);
+  } else if (board[1][0] == x && board[1][1] == x && board[1][2] == x) {
+    print("$x won");
+    exit(0);
+  } else if (board[2][0] == x && board[2][1] == x && board[2][2] == x) {
+    print("$x won");
+    exit(0);
+  } else if (board[0][0] == x && board[1][0] == x && board[2][0] == x) {
+    print("$x won");
+    exit(0);
+  } else if (board[0][1] == x && board[1][1] == x && board[2][1] == x) {
+    print("$x won");
+    exit(0);
+  } else if (board[0][2] == x && board[1][2] == x && board[2][2] == x) {
+    print("$x won");
+    exit(0);
+  } else if (board[0][0] == x && board[1][1] == x && board[2][2] == x) {
+    print("$x won");
+    exit(0);
+  } else if (board[0][2] == x && board[1][1] == x && board[2][0] == x) {
+    print("$x won");
+    exit(0);
+  }
 }
